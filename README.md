@@ -15,15 +15,15 @@ npm i -S bootstrap-treeview-node
 ##Usage
 
 ```js
-var dirTree = require('bootstrap-treeview-node');
-var tree = dirTree('/some/path');
+var dirTree = require('bootstrap-treeview-node')
+var tree = dirTree('/some/path')
 ```
 
 And you can also filter by extensions (with Array), or by name patterns (with RegExp):
 
 ```js
-var dirTree = require('bootstrap-treeview-node');
-var filteredTree = dirTree('/some/path', ['.jpg', '.png']);
+var dirTree = require('bootstrap-treeview-node')
+var filteredTree = dirTree('/some/path', {include: ['.jpg', '.png']})
 ```
 
 This will take a directory tree:
@@ -96,23 +96,29 @@ And return a js object:
 
 ## API
 
-#### dirTree(path [, includes, excludes])
+#### dirTree(path [, options])
 
 - `path` {String}:   is the relative or absolute path to the base directory e.g. '.' for cwd.
-- `includes` {RegExp|Array}: optional, Array tests the file extension, RegExp tests the filename.
-- `excludes` {RegExp|Array}: optional, Array tests the file extension, RegExp tests the filename.
+- `options` {Object}:   Options object
+
+
+#### Options
+
+- `root` {String}: resolve href path to this root path.
+- `include` {RegExp|Array}: optional, Array tests the file extension, RegExp tests the filename.
+- `ignore` {RegExp|Array}: optional, Array tests the file extension, RegExp tests the filename.
 
 ## Examples
 
 ```js
 var tree
-tree = dirTree('.', ['.jpg', '.png']) // list only files with .jpg or .png file extensions
-tree = dirTree('/home/pi', /^[A-z]/) // list only files/directories that start with letters
-tree = dirTree('../', null, /^\./) // ignore only files/directories that start with a dot like .git
+tree = dirTree('.', {root: '/', include: ['.jpg', '.png']}) // list only files with .jpg or .png file extensions, resolve href to '/'
+tree = dirTree('/home/pi', {include: /^[A-z]/}) // list only files/directories that start with letters
+tree = dirTree('../', {ignore: /^\./}) // ignore only files/directories that start with a dot like .git
 ```
 
 
-## Dev
+## Test
 
 To run tests go the package root in your CLI and run,
 

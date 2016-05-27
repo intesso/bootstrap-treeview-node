@@ -1,22 +1,22 @@
 {
-  "name": "directory-tree",
+  "name": "bootstrap-treeview-node",
   "version": "1.0.0",
-  "description": "Convert a directory tree to a JS object.",
+  "description": "Convert a directory tree to a JS object, works nicely with bootstrap-treeview",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mihneadb/node-directory-tree"
+    "url": "https://github.com/intesso/bootstrap-treeview-node"
   },
   "keywords": [
     "directory",
     "tree"
   ],
   "main": "lib/directory-tree.js",
-  "author": "Mihnea Dobrescu-Balaur",
+  "author": "Andi Neck",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mihneadb/node-directory-tree/issues"
+    "url": "https://github.com/intesso/bootstrap-treeview-node/issues"
   },
-  "homepage": "https://github.com/mihneadb/node-directory-tree",
+  "homepage": "https://github.com/intesso/bootstrap-treeview-node",
   "dependencies": {},
   "devDependencies": {
     "chai": "^2.3.0",

@@ -1,6 +1,8 @@
 var tree = require('../lib/directory-tree')
-var cwdTree = tree('../', {
+var relPath = '../node_modules'
+var cwdTree = tree(relPath, {
   ignore: /^\./,
+  href: function (path) { return path.replace(relPath, '') },
   root: '/'
 })
 

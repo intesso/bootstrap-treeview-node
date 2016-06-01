@@ -104,6 +104,7 @@ And return a js object:
 
 #### Options
 
+- `href` {Function}: overridable function to generate href string from path: `href = opts.href(path)`s
 - `root` {String}: resolve href path to this root path.
 - `include` {RegExp|Array}: optional, Array tests the file extension, RegExp tests the filename.
 - `ignore` {RegExp|Array}: optional, Array tests the file extension, RegExp tests the filename.
@@ -115,6 +116,12 @@ var tree
 tree = dirTree('.', {root: '/', include: ['.jpg', '.png']}) // list only files with .jpg or .png file extensions, resolve href to '/'
 tree = dirTree('/home/pi', {include: /^[A-z]/}) // list only files/directories that start with letters
 tree = dirTree('../', {ignore: /^\./}) // ignore only files/directories that start with a dot like .git
+
+var relPath = '../node_modules'
+tree = dirTree(relPath, {
+  href: function (path) { return path.replace(relPath, '') }, // replace relative path and take as new `root href`
+  root: '/'
+})
 ```
 
 
